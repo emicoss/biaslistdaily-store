@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bias List Daily | Tienda Pro</title>
+  <meta name="description" content="Tienda profesional con carrito, envío DHL y checkout con Stripe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-badge">BLD</div>
+      <div>
+        <p class="eyebrow">K-pop cute things</p>
+        <h1>Bias List Daily</h1>
+      </div>
+    </div>
+    <button class="btn btn-outline" id="openCartBtn">Carrito <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="pill">Checkout profesional con Stripe</span>
+        <h2>Compra tus productos <span>originales</span> en una sola orden</h2>
+        <p>Agrega uno o varios productos al carrito y paga en una sola compra. El envío express DHL se agrega automáticamente por <strong>$300 MXN</strong>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#productos">Ver productos</a>
+          <a class="btn btn-secondary" href="https://wa.me/529618513798?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="product-spotlight">
+          <div class="mock-photo glow"></div>
+          <div class="spotlight-info">
+            <p class="label">Producto estrella</p>
+            <h3>Army Bomb Ver. 4 Original</h3>
+            <p>Producto original con todos los accesorios.</p>
+            <div class="price">$2,000 MXN</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="productos">
+      <div class="section-head">
+        <p class="eyebrow">Catálogo</p>
+        <h2>Productos disponibles</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card featured">
+          <div class="card-image image-armybomb"></div>
+          <div class="card-body">
+            <span class="tag">Original</span>
+            <h3>Army Bomb Ver. 4</h3>
+            <p>Versión original con todos los accesorios incluidos.</p>
+            <div class="card-footer">
+              <strong>$2,000 MXN</strong>
+              <button class="btn btn-small btn-primary add-to-cart" data-id="armybomb">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image image-battery"></div>
+          <div class="card-body">
+            <span class="tag">Accesorio</span>
+            <h3>Baterías recargables HYPE</h3>
+            <p>Complemento ideal para tu Army Bomb.</p>
+            <div class="card-footer">
+              <strong>$600 MXN</strong>
+              <button class="btn btn-small btn-primary add-to-cart" data-id="baterias">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image image-cradle"></div>
+          <div class="card-body">
+            <span class="tag">Complemento</span>
+            <h3>Cradle</h3>
+            <p>Accesorio oficial para completar tu set.</p>
+            <div class="card-footer">
+              <strong>$500 MXN</strong>
+              <button class="btn btn-small btn-primary add-to-cart" data-id="cradle">Agregar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shipping">
+      <div class="shipping-box">
+        <div>
+          <p class="eyebrow">Envío y pago</p>
+          <h2>Compra profesional</h2>
+          <p>Paga varios productos en una sola compra con <strong>Stripe Checkout</strong>.</p>
+          <p>El envío DHL express se agrega como costo fijo de <strong>$300 MXN</strong> por orden.</p>
+          <p class="note">Esta versión necesita backend y variables seguras para funcionar con tu cuenta Stripe.</p>
+        </div>
+        <div class="summary">
+          <h3>Tu carrito</h3>
+          <div id="cartSummary"></div>
+          <div class="summary-row total"><span>Total</span><strong id="cartTotal">$0 MXN</strong></div>
+          <button class="btn btn-primary btn-large full-width" id="checkoutBtn">Pagar ahora</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="contact-box">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>¿Tienes dudas?</h2>
+          <p>WhatsApp: <a href="https://wa.me/529618513798" target="_blank" rel="noopener">+52 961 851 3798</a></p>
+          <p>Facebook: Bias List Daily</p>
+        </div>
+        <a class="btn btn-secondary btn-large" href="https://wa.me/529618513798?text=Hola,%20tengo%20una%20duda%20sobre%20mi%20pedido" target="_blank" rel="noopener">Contactar</a>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-head">
+        <h3>Tu carrito</h3>
+        <button class="icon-btn" id="closeCartBtn">✕</button>
+      </div>
+      <div id="cartItems"></div>
+      <div class="summary-row"><span>Envío DHL</span><strong>$300 MXN</strong></div>
+      <div class="summary-row total"><span>Total</span><strong id="drawerTotal">$0 MXN</strong></div>
+      <button class="btn btn-primary full-width" id="drawerCheckoutBtn">Pagar con Stripe</button>
+    </div>
+  </aside>
+
+  <script src="/app.js"></script>
+</body>
+</html>
